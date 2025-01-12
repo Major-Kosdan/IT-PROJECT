@@ -1,0 +1,490 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --fontsize: .8rem; /*for screen less than 600*/
+    --gap: .3rem;
+    --padding: .4rem;
+    transition: all 600ms;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("student.jpg");
+    background-size: cover;
+    background-color: rgb(253, 253, 253);
+    background-blend-mode: lighten;
+
+
+}
+
+.page{
+    
+    width: min(1200px,95%);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header-area"
+    "session-area"
+    "classlist-area"
+    "classdetails-area"
+    "studentlist-area"
+    ;
+    padding-top: calc(var(--padding)*8);
+    padding-bottom: calc(var(--padding)*8);
+    border-bottom: solid black 1px;
+    animation: fadein 700ms linear;
+}
+
+@keyframes fadein{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+
+}
+
+
+.header-area{
+    grid-area: header-area;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "logo-area logout-area";
+    /*border: solid 1px black; temporary, just to view*/
+    gap: var(--gap);
+    padding: var(--padding);
+    border-bottom: 1px solid #e0e0e0;
+    background-color: white;
+}
+
+.logo-area{
+    grid-area: logo area;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.logout-area{
+    grid-area: logout area;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.session-area {
+    grid-area: session-area;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "label-area"
+        "dropdown-area";
+    gap: var(--gap);
+    padding: var(--padding);
+    border-bottom: 1px solid #e0e0e0; /* Softer border for a cleaner look */
+    background-color: #fff;
+    color: #333; /* Neutral color for better readability */
+}
+
+.label-area {
+    grid-area: label-area;
+    font-size: calc(var(--fontsize) * 0.85);
+    padding-left: calc(var(--padding) * 0.8);
+    color: #666; /* Light grey for the label text to give a soft appearance */
+    font-weight: 600; /* Boldness for better hierarchy */
+}
+
+.dropdown-area {
+    grid-area: dropdown-area;
+    font-size: calc(var(--fontsize) * 1);
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+    background-color: #f7f7f7; /* Subtle background color for the dropdown area */
+    border-radius: 6px; /* Rounded corners for a softer look */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.classlist-area {
+    grid-area: classlist-area;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    padding: var(--padding);
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0; /* Soft border to match the overall theme */
+    background-color: #f9f9f9; /* Light background color for visual contrast */
+}
+
+.classdetails-area {
+    grid-area: classdetails-area;
+    gap: var(--gap);
+    padding: var(--padding);
+    border-bottom: 1px solid #e0e0e0; /* Subtle border */
+    text-transform: uppercase;
+    font-weight: 700; /* Bold text for better emphasis */
+    background-color: #fff; /* Clean, neutral background */
+    color: #333; /* Dark text for contrast */
+}
+
+.studentlist-area{
+    grid-area: studentlist-area;
+    /*dummy colors: just to view*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap);
+    padding: var(--padding);
+    border-bottom: 1px solid pink;
+    background-color: white;
+
+}
+
+.btnlogout {
+    font-size: var(--fontsize);
+    width: auto;
+    padding: 12px 24px; /* Adjusted padding for a more balanced button size */
+    background-color: #3b74f2; /* A cleaner blue tone */
+    color: white;
+    border: 1px solid #3b74f2; /* Border color matching the background */
+    border-radius: 5px; /* Slightly more rounded corners for a modern feel */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition on hover */
+}
+
+.btnlogout:hover {
+    background-color: #2a56c6; /* Darker shade of blue on hover */
+    transform: translateY(-2px); /* Slight lifting effect on hover */
+}
+
+.btnlogout:active {
+    background-color: #1a3f97; /* Even darker shade when clicked */
+    transform: translateY(0); /* Reset the lift effect */
+}
+
+
+.logo {
+    font-size: calc(var(--fontsize) * 1.6);
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(45deg, #28a745, #218838); /* Gradient green */
+    padding: 12px 20px; /* Adjust padding for better spacing */
+    border-radius: 8px; /* Slightly larger rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center;
+    display: inline-block;
+    transition: all 0.3s ease-in-out; /* Smooth hover animation */
+}
+
+/* Hover Effect */
+.logo:hover {
+    background: linear-gradient(45deg, #218838, #28a745); /* Reverse gradient */
+    transform: translateY(-3px); /* Slight pop-up effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+/* Optional: Add focus effect for accessibility */
+.logo:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
+
+
+.ddlclass {
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: #f4f4f4; /* Soft blue */
+    border-bottom: 1px solid #007BFF; /* Slightly darker blue for a sharper look */
+    padding: 8px 0; /* Padding for better spacing */
+    font-size: 16px; /* Clear font size */
+    color: #333; /* Dark text for readability */
+    transition: border-bottom 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+.ddlclass:focus {
+    border-bottom: 1px solid #0056b3; /* Focus effect with a darker blue */
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3); /* Subtle box-shadow on focus */
+}
+
+
+.classcard {
+    font-size: calc(var(--fontsize)*1);
+    width: 4.5em;
+    height: 4.5em;
+    border-radius: .5em;
+    background: linear-gradient(135deg, #0091ff, #004080);
+    color: white;
+    padding-left: 45px;
+    padding-right: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.classcard:hover {
+    background: linear-gradient(45deg, #28a745, #218838); /* Gradient green */
+    color: white;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: tilt 500ms linear;
+}
+
+
+@keyframes tilt {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(-2deg); }
+    100% { transform: rotate(0); }
+}
+
+
+
+.classdetails{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas: 
+    "title-area title-area"
+    "code-area ondate-area";
+    gap: var(--gap);
+    font-size: var(--fontsize);
+   
+
+}
+
+.title-area{
+    grid-area: title-area;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.code-area{
+    grid-area: code-area;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.ondate-area{
+    grid-area: ondate-area;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
+}
+
+
+.ondate-area >input{
+    font-size: var(--fontsize);
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px blue;
+    outline: none;
+}
+
+.studenttlist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.studenttlist >label{
+    font-size: calc(var(--fontsize)*.8);
+}
+
+.studentdetails {
+    display: grid;
+    grid-template-columns: 0.25fr 1.5fr 0.4fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "slno-area regno-area checkbox-area"
+        "name-area name-area checkbox-area";
+    gap: 10px; /* Reduced gap for cleaner look */
+    width: 100%;
+    font-size: var(--fontsize);
+    padding: 15px; /* Balanced padding for consistency */
+    border-radius: 5px; /* Rounded corners for a modern feel */
+    border: 1px solid #ddd; /* Subtle border for better separation */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+    background-color: #fff; /* Neutral background for contrast */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth interaction */
+    color: #333; /* Neutral text color for readability */
+}
+
+/* Hover effect for interactivity */
+.studentdetails:hover {
+    transform: translateY(-5px); /* Subtle lift */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Styling for grid areas */
+.studentdetails .slno-area {
+    font-weight: bold;
+    text-align: center;
+    color: #fff; /* Highlighted blue color */
+}
+
+.studentdetails .regno-area {
+    text-align: left;
+    font-weight: 500;
+    color: #fff; /* Neutral tone */
+}
+
+.studentdetails .name-area {
+    font-weight: bold;
+    text-transform: capitalize; /* Professional text style */
+    color: #fff;
+}
+
+.studentdetails .checkbox-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.reportsection {
+    width: 100%;
+    font-size: var(--fontsize);
+    padding: calc(var(--padding) * 1.5) 0;
+    background-color: rgb(0, 106, 255); /* Primary blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border-radius: 8px; /* Rounded corners for a smooth look */
+    margin: 20px 0; /* Margin for spacing */
+}
+
+#btnReport {
+    width: 20%;
+    padding: 12px 0;
+    background-color: #FF5733; /* Soft red for a professional tone */
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Light shadow to lift the button */
+    transition: background-color 0.3s, transform 0.2s ease; /* Smooth transition */
+}
+
+#btnReport:hover {
+    background-color: #28A745; /* Smooth green on hover */
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+#btnReport:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 10px rgba(0, 166, 73, 0.8); /* Green glow on focus for accessibility */
+}
+
+
+
+
+.checkbox-area{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.checkbox-area >input{
+    font-size: var(--fontsize);
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+.slno-area{
+    grid-area: slno-area;
+}
+
+.regno-area{
+    grid-area: regno-area;
+}
+
+.name-area{
+    grid-area: name-area;
+}
+
+
+.checkbox-area{
+    grid-area: checkbox-area;
+}
+.absentcolor{
+    background-color: rgb(212, 69, 98);
+}
+
+.presentcolor{
+    background: linear-gradient(45deg, #28a745, #218838); 
+}
+
+
+@media only screen and (min-width:600px){
+    *{
+       
+        --fontsize: .9rem; /*for screen > 767*/
+       
+    }
+}
+
+
+/*if the screen is larger than 600px*/
+@media only screen and (min-width: 767px){
+    *{
+       
+        --fontsize: 1rem; /*for screen less than 767 > 600*/
+       
+    }
+    .session-area{
+        grid-template-columns: .5fr .5fr 1fr .5fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "...label-area dropdown-area...";
+        
+    }
+    .label-area{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding-left: calc(var(--var)*1);
+    }
+    .classdetails{
+       
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "code-area title-area ondate-area";
+        padding-bottom: calc(var(--padding)*1);
+        padding-top: calc(var(--padding)*1);
+    
+    }
+    .studentdetails{
+        display: grid;
+        grid-template-columns: 1fr 2fr 3fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "slno-area regno-area name-area checkbox-area";
+        /*removed properties, it means they are the same settings*/
+    }
+    .studentdetails>*{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+
+

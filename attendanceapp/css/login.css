@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 600ms;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height: 100vh;
+    background-image: url("student.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(8, 186, 23, 0.3);
+    background-blend-mode: lighten;
+
+}
+
+.loginform {
+    width: min(480px, 95%);
+    height: auto;
+    padding: 40px 20px;
+    border: none;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.8); /* Slight transparency for a modern look */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.9); /* Softer shadow */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+
+.inputgroup {
+    position: relative;
+    height: 20px;
+    width: 85%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.inputgroup input {
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: solid 1px green;
+    color: black;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    padding-left: 10px; /* Add slight padding for better readability */
+}
+
+.inputgroup label {
+    position: absolute;
+    transition: all 0.2s ease;
+    color: #8B4513; /* Softer brown for label */
+    font-size: 16px;
+}
+
+.inputgroup input:hover + label,
+.inputgroup input:focus + label,
+.inputgroup input:valid + label {
+    transform: translateY(-20px);
+    color: green;
+}
+
+.inputgroup input:hover,
+.inputgroup input:focus,
+.inputgroup input:valid {
+    border-bottom: solid 2px rgb(115, 179, 20);
+}
+
+.topmargin {
+    margin-top: 50px;
+}
+
+.topmarginlarge {
+    margin-top: 80px;
+}
+
+.divcallforaction {
+    width: 85%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px; /* Slight space above call to action */
+}
+
+.btnlogin {
+    border: none;
+    width: 200px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 25px; /* Softer rounded button */
+    font-size: 18px;
+    color: white;
+    background-color: green;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btnlogin:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* Softer shadow */
+    transform: translateY(-3px);
+}
+
+.inactivecolor {
+    background-color: brown;
+}
+
+.activecolor {
+    background-color: green;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: 1px solid white;
+    color: rgb(224, 232, 224);
+    border-radius: 5px;
+}
+
+.logo {
+    display: block;
+    width: 150px; /* Reduced logo size for better alignment */
+    height: auto;
+    position: relative;
+    top: -20px;
+}
+
+.login_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+}
+
+
+.text_wrapper{
+    margin-top: -50px;
+    text-align: center;
+}
+
+.text_wrapper h1,
+.text_wrapper p{
+    margin: 0;
+    line-height: 1.5;
+}
+
+.text_wrapper h1{
+    color: green;
+}
+
+.scrolling_text{
+    position: absolute;
+    top: 10px;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    width: 80%;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    animation: scrollText 35s linear infinite;
+    margin: 0;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+@keyframes scrollText {
+    0%{
+    transform: translateX(-100%);
+    }
+    100%{
+    transform: translateX(100%);
+    }
+    
+}
+
+.diverror {
+    background-color: #f8d7da; /* Light red for error background */
+    color: #721c24; /* Dark red for text */
+    font-size: 16px; /* Simple and readable font size */
+    font-weight: 500; /* Medium weight for emphasis */
+    padding: 10px 15px; /* Comfortable padding */
+    border: 1px solid #f5c6cb; /* Subtle border to match the background */
+    border-radius: 4px; /* Slightly rounded corners for a refined look */
+    width: 90%; /* Keeps it responsive and centered */
+    margin: 10px auto; /* Adds space and centers it horizontally */
+    text-align: center; /* Centers the text */
+    visibility: hidden; /* Hidden by default */
+    opacity: 0; /* Transparent by default */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade-in/out */
+}
+
+
+.applyerrordiv {
+    visibility: visible;
+    opacity: 1;
+    animation: falldown 0.8s ease-out;
+}
+
+@keyframes falldown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
